@@ -7,4 +7,4 @@ Tools:
 Description:
   This is an android app created to be used along with the CCG Magic The Gathering. 
   It will keep track of values that are prevolent within the game. Things like life total, poison counters, commander damage and commmander
-  tax. 
+  tax. test
