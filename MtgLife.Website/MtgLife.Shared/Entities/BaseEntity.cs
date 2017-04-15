@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MtgLife.Shared.Entities
 {
-    public class Game : BaseEntity
+    public class BaseEntity
     {
-        public string GameId { get; set; }
-        public int StartingLifeTotal { get; set; }
+        [BsonId]
+        public ObjectId _id { get; set; }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using MtgLife.Actions.Usecases.Games;
 using MtgLife.Website.Models;
 
 namespace MtgLife.Website.Controllers
@@ -15,8 +12,13 @@ namespace MtgLife.Website.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(GameViewModel viewModel)
-        {
+        public ActionResult Index(GameViewModel viewModel) {
+            var createNewGame = new CreateNewGameInteractor();
+            var request = new CreateNewGameRequest {
+                StartingLifeTotal = 40,
+                PlayerName = viewModel.PlayerName
+            };
+            createNewGame.Invoke(request);
 
             return Redirect("/");
         }

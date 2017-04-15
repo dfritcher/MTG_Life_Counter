@@ -43,6 +43,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usecases\Games\CreateNewGame.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MtgLife.Data\MtgLife.Data.csproj">
+      <Project>{B7508B02-C1D4-4130-83A6-85A07A5FF8AB}</Project>
+      <Name>MtgLife.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MtgLife.Shared\MtgLife.Shared.csproj">
+      <Project>{B4B18DE7-056E-48E5-8417-C9BA6688440E}</Project>
+      <Name>MtgLife.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
