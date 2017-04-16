@@ -9,13 +9,16 @@ namespace MtgLife.Website.Controllers
     {
         public ActionResult Show()
         {
-            if (Url.RequestContext.RouteData.Values["id"] == null) Redirect("/");
+            var routeDataValue = Url.RequestContext.RouteData.Values["id"];
+            if (routeDataValue != null)
+            {
+                var playerId = routeDataValue.ToString();
+                var player = GetPlayer(playerId);
 
-            var playerId = Url.RequestContext.RouteData.Values["id"].ToString();
-            var player = GetPlayer(playerId);
-
-            var viewModel = player.Assign<PlayerViewModel>();
-            return View(viewModel);
+                var viewModel = player.Assign<PlayerViewModel>();
+                return View(viewModel);
+            }
+            return Redirect("/");
         }
 
 

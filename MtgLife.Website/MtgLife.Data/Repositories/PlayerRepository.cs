@@ -25,11 +25,9 @@ namespace MtgLife.Data.Repositories
             return ExecuteCollection(g => g._id == new ObjectId(requestPlayerId)).SingleOrDefault();
         }
 
-        public void AddOneToTotal(string playerId) {
-            var player = Get(playerId);
-            
+        public void ChangeTotal(string playerId, int newAmount) {
             var filter = Builders<Player>.Filter.Eq("_id", new ObjectId(playerId));
-            var update = Builders<Player>.Update.Set("LifeTotal", player.LifeTotal + 1);
+            var update = Builders<Player>.Update.Set("LifeTotal", newAmount);
             ExecuteUpdate(filter, update);
         }
     }

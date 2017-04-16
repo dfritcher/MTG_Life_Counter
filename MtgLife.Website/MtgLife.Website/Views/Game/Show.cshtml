@@ -30,21 +30,34 @@
     <script>
         $("#plus").click(function () {
             var total = parseInt($("#total").text());
-            $("#total").text(total + 1);
+            var newAmount = total + 1;
+            $("#total").text(newAmount);
+            ChangeTotal(newAmount);
+        });
+        $("#minus").click(function () {
+            var total = parseInt($("#total").text());
+            var newAmount = total - 1;
+            if (newAmount > 0) {
+                $("#total").text(newAmount);
+                ChangeTotal(newAmount);
+            }
+        });
 
+        function ChangeTotal(newAmount) {
             var playerId = $("#playerId").val();
 
             var dataToPost = {
-                PlayerId: playerId
+                PlayerId: playerId,
+                NewAmount: newAmount
             };
 
             $.ajax({
-                    type: "POST",
-                    data: JSON.stringify(dataToPost),
-                    url: "/Player/AddOneToTotal",
-                    contentType: 'application/json; charset=utf-8'
-                });
-        });
+                type: "POST",
+                data: JSON.stringify(dataToPost),
+                url: "/Player/ChangeTotal",
+                contentType: 'application/json; charset=utf-8'
+            });
+        }
 
 
     </script>
