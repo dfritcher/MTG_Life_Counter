@@ -2,11 +2,12 @@
 
 namespace MtgLife.Website.Models
 {
-    public class GameViewModel
+    public class PlayerViewModel
     {
+        public string PlayerId { get; set; }
         public string GameId { get; set; }
-        public int StartingLifeTotal { get; set; }
         [DisplayName("Player Name")]
         public string PlayerName { get; set; }
+        public int LifeTotal { get; set; }
     }
 }

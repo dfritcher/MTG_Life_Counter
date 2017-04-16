@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq.Expressions;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MtgLife.Shared.Entities;
 
@@ -20,6 +21,18 @@ namespace MtgLife.Data.Repositories
         protected void ExecuteInsert(T objectToInsert) {
             var collection = GetCollection();
             collection.InsertOne(objectToInsert);
+        }
+
+        protected void ExecuteReplace(Expression<Func<T, bool>> query, T objectToInsert)
+        {
+            var collection = GetCollection();
+            collection.ReplaceOne(query, objectToInsert);
+        }
+
+        protected void ExecuteUpdate(FilterDefinition<T> filter, UpdateDefinition<T> update)
+        {
+            var collection = GetCollection();
+            collection.UpdateOne(filter, update);
         }
 
         private static IMongoDatabase GetDatabase() {

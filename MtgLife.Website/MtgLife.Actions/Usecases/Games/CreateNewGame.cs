@@ -17,7 +17,7 @@ namespace MtgLife.Actions.Usecases.Games
             var newGame = request.Assign<Game>();
             repository.Insert(newGame);
 
-            return new Game { GameId = "123", StartingLifeTotal = 40 };
+            return newGame;
         }
 
         private CreateNewGameResponse CreateResponse(Game game)
@@ -29,7 +29,6 @@ namespace MtgLife.Actions.Usecases.Games
     public struct CreateNewGameRequest
     {
         public int StartingLifeTotal { get; set; }
-        public string PlayerName { get; set; }
     }
 
     public struct CreateNewGameResponse

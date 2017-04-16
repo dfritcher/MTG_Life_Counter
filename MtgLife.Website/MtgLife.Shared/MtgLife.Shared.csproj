@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="ManualMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,20 +1,34 @@
 ﻿@model MtgLife.Website.Models.GameViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "MTG Life";
 }
 
-<div>
+<div class="container">
     <h2>Create a new game</h2>
     @using (Html.BeginForm())
     {
         <div>
-            @Html.LabelFor(m => m.PlayerName)
+            <div>
+                <label>Starting Life Total</label>
+            </div>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    @Html.RadioButtonFor(m => m.StartingLifeTotal, "20", new { id = "option20" }) 20
+                </label>
+                <label class="btn btn-default">
+                    @Html.RadioButtonFor(m => m.StartingLifeTotal, "30", new { id = "option30" }) 30
+                </label>
+                <label class="btn btn-default active">
+                    @Html.RadioButtonFor(m => m.StartingLifeTotal, "40", new { id = "option40", @checked = "true" }) 40
+                </label>
+            </div>
         </div>
-        <div>
-            @Html.TextBoxFor(m => m.PlayerName)
+        <div class="form-group">
+            <label>What is your name?</label>
+            @Html.TextBoxFor(m => m.PlayerName, new { id = "playerName", @class = "form-control", @placeholder = "Name", style = "width:250px;" })
         </div>
         <p>
-            <input type="submit" value="Create game" />
+            <input class="btn btn-primary" type="submit" value="Create game" />
         </p>
     }
 </div>
