@@ -11,5 +11,6 @@ namespace MtgLife.Shared.Entities
         public string GameId { get; set; }
         public string PlayerName { get; set; }
         public int LifeTotal { get; set; }
+        public int PoisonTotal { get; set; }
     }
 }
