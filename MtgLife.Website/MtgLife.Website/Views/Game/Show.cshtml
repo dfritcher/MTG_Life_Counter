@@ -8,23 +8,31 @@
 
 </head>
 <body>
-    <div class="row">
-        Game: @Model.GameId
-    </div>
-    <div class="row">
-        <input type="button" id="player1" value="@Model.PlayerName" />
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            <input type="button" id="minus" value="-" />
-        </div>
-        <div class="col-sm-6">
-            <span id="total">@Model.LifeTotal</span>
-        </div>
-        <div class="col-sm-3">
-            <input type="button" id="plus" value="+" />
+    <div class="alert alert-warning" role="alert"><strong>Game:</strong> @Model.GameId</div>
+
+    <div style="padding:4px;">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" id="player1">@Model.PlayerName</button>
         </div>
     </div>
+
+    <div style="padding:4px;">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" id="life">Life</button>
+            <button type="button" class="btn btn-default" id="life">Poison</button>
+            <button type="button" class="btn btn-default" id="life">Commander from Player 2</button>
+            <button type="button" class="btn btn-default" id="life">Commander from Player 3</button>
+        </div>
+    </div>
+
+    <div style="padding:4px;">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" id="minus">-</button>
+            <button type="button" class="btn btn-default" id="total">@Model.LifeTotal</button>
+            <button type="button" class="btn btn-default" id="plus">+</button>
+        </div>
+    </div>
+
     <input type="hidden" id="playerId" value="@Model.PlayerId">
 
     <script>
