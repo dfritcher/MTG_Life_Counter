@@ -48,6 +48,7 @@
     <Compile Include="Usecases\Games\GetGame.cs" />
     <Compile Include="Usecases\Games\CreateNewGame.cs" />
     <Compile Include="Usecases\Players\ChangeTotal.cs" />
+    <Compile Include="Usecases\Players\GetPlayersInGame.cs" />
     <Compile Include="Usecases\Players\UpdatePlayer.cs" />
     <Compile Include="Usecases\Players\CreateNewPlayer.cs" />
     <Compile Include="Usecases\Players\GetPlayer.cs" />

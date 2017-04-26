@@ -21,7 +21,6 @@ namespace MtgLife.Website.Controllers
             return Redirect("/");
         }
 
-
         private GetPlayerResponse GetPlayer(string id)
         {
             var getPlayer = new GetPlayerInteractor();

@@ -11,17 +11,17 @@
     <div class="alert alert-warning" role="alert"><strong>Game:</strong> @Model.GameId</div>
 
     <div style="padding:4px;">
-        <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group" id="playersInGame">
             <button type="button" class="btn btn-default" id="player1">@Model.PlayerName</button>
         </div>
     </div>
 
     <div style="padding:4px;">
         <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" id="life">Life</button>
-            <button type="button" class="btn btn-default" id="life">Poison</button>
-            <button type="button" class="btn btn-default" id="life">Commander from Player 2</button>
-            <button type="button" class="btn btn-default" id="life">Commander from Player 3</button>
+            <button type="button" class="btn btn-default active" id="life">Life</button>
+            <button type="button" class="btn btn-default" id="poison">Poison</button>
+            <button type="button" class="btn btn-default" id="player">Commander from Player 2</button>
+            <button type="button" class="btn btn-default" id="player">Commander from Player 3</button>
         </div>
     </div>
 
@@ -33,6 +33,7 @@
         </div>
     </div>
 
+    <input type="hidden" id="gameId" value="@Model.GameId">
     <input type="hidden" id="playerId" value="@Model.PlayerId">
 
     <script>
@@ -67,6 +68,28 @@
             });
         }
 
+        function RefreshPlayers() {
+            var gameId = $("#gameId").val();
+
+            var dataToPost = {
+                GameId: gameId
+            };
+
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(dataToPost),
+                url: "/Player/RefreshPlayers",
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (players) {
+                $("#playersInGame").empty();
+                $.each(players, function (i, player) {
+                    console.log(player);
+                    console.log(i);
+                    //$("#playersInGame").append("<button type='button' class='btn btn-default' id='player" + playerJson.PlayerId + "'>" + playerJson.PlayerName + "</button>")
+                });
+            });
+
+        }
 
     </script>
 

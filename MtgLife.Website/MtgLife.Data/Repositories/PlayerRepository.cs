@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -19,6 +20,11 @@ namespace MtgLife.Data.Repositories
 
         public void Replace(Player player) {
             ExecuteReplace(p => p._id == player._id, player);
+        }
+
+        public List<Player> GetAllByGameId(string gameId)
+        {
+            return ExecuteCollection(g => g.GameId == gameId);
         }
 
         public Player Get(string requestPlayerId) {

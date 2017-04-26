@@ -32,7 +32,8 @@ namespace MtgLife.Website.Controllers
             var createNewPlayer = new CreateNewPlayerInteractor();
             var request = new CreateNewPlayerRequest {
                 GameId = game.GameId,
-                PlayerName = viewModel.PlayerName
+                PlayerName = viewModel.PlayerName,
+                LifeTotal = viewModel.StartingLifeTotal
             };
             return createNewPlayer.Invoke(request);
         }

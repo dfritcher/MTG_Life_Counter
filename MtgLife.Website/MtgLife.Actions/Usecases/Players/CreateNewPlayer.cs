@@ -8,8 +8,8 @@ namespace MtgLife.Actions.Usecases.Players
     {
         public CreateNewPlayerResponse Invoke(CreateNewPlayerRequest request)
         {
-            var game = CreateNewPlayer(request);
-            return CreateResponse(game);
+            var player = CreateNewPlayer(request);
+            return CreateResponse(player);
         }
 
         private Player CreateNewPlayer(CreateNewPlayerRequest request)
@@ -30,6 +30,7 @@ namespace MtgLife.Actions.Usecases.Players
     public struct CreateNewPlayerRequest
     {
         public string GameId { get; set; }
+        public int LifeTotal { get; set; }
         public string PlayerName { get; set; }
     }
 
